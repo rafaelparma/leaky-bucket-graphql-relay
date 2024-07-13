@@ -1,0 +1,391 @@
+{
+	"info": {
+		"_postman_id": "d7c5607f-86d9-4b40-9ecd-c5a2b1af4789",
+		"name": "leaky-bucket-graphql-relay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3217525"
+	},
+	"item": [
+		{
+			"name": "Query-users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query Users {\r\n    users {\r\n        edges {\r\n            cursor\r\n            node {\r\n                id\r\n                username\r\n                tokens\r\n                createdAt\r\n                updatedAt\r\n            }\r\n        }\r\n        pageInfo {\r\n            hasNextPage\r\n            hasPreviousPage\r\n            startCursor\r\n            endCursor\r\n        }\r\n    }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query-usersById",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query UserById ($id: ID!) {\r\n    userById(id: $id) {\r\n        id\r\n        username\r\n        tokens\r\n        createdAt\r\n        updatedAt\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"id\": \"VXNlcjo2NjkxOGIxYmM5OWNmOTk2MDVlYTg4OWI=\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mutation-createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateUser ($username: String!, $password: String!) {\r\n    createUser(input: { username: $username, password: $password }) {\r\n        user {\r\n            id\r\n            username\r\n            tokens\r\n            createdAt\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"username\": \"username@email.com\",\r\n    \"password\": \"usernamepassword\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mutation-updateUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation UpdateUser ($id: ID!, $password: String!) {\r\n    updateUser(\r\n        input: { id: $id, password: $password }\r\n    ) {\r\n        user {\r\n            id\r\n            username\r\n            tokens\r\n            createdAt\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"id\": \"VXNlcjo2NjkxOGZhNTBkMzc2YmE3YTc3ZTFiNTY=\",\r\n    \"password\": \"usernamepassword2\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mutation-deleteUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation DeleteUser ($id: ID!) {\r\n    deleteUser(input: {id: $id}) {\r\n        deletedUserId\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"id\": \"VXNlcjo2NjkxOGZhNTBkMzc2YmE3YTc3ZTFiNTY=\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query-pixkeys",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query Pixkeys {\r\n    pixkeys {\r\n        edges {\r\n            cursor\r\n            node {\r\n                id\r\n                pixkey_type\r\n                pixkey\r\n                createdAt\r\n                updatedAt\r\n            }\r\n        }\r\n        pageInfo {\r\n            hasNextPage\r\n            hasPreviousPage\r\n            startCursor\r\n            endCursor\r\n        }\r\n    }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query-pixkeyById",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query PixkeyById ($id: ID!) {\r\n    pixkeyById(id: $id) {\r\n        id\r\n        pixkey_type\r\n        pixkey\r\n        createdAt\r\n        updatedAt\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"id\": \"UGl4S2V5OjY2OTE4YjFjYzk5Y2Y5OTYwNWVhODhhOA==\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query-pixkeyByValue",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query PixkeyByValue ($pixkey: String!) {\r\n    pixkeyByValue(pixkey: $pixkey) {\r\n        pixkey_type\r\n        pixkey\r\n        id\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"pixkey\": \"43653756014\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mutation-createPixkey",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreatePixKey ($pixkey_type: String!, $pixkey: String!) {\r\n    createPixKey(\r\n        input: { pixkey_type: $pixkey_type, pixkey: $pixkey }\r\n    ) {\r\n        pixkey {\r\n            id\r\n            pixkey_type\r\n            pixkey\r\n            createdAt\r\n            updatedAt\r\n        }\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"pixkey_type\": \"CPF\",\r\n    \"pixkey\": \"43653756014\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mutation-deletePixkey",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation DeletePixKey ($id: ID!) {\r\n    deletePixKey(input: { id: $id }) {\r\n        deletedPixKeyId\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"id\": \"UGl4S2V5OjY2OTE5MTlmMGQzNzZiYTdhNzdlMWI2Yg==\"    \r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query-Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query Auth ($username: String!, $password: String!) {\r\n    auth(username: $username, \r\n    password: $password)\r\n}\r\n",
+						"variables": "{\r\n    \"username\": \"usermane@email.com\",\r\n    \"password\": \"usernamepassword\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query-pixkeyVerification",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXJuYW1lQGVtYWlsLmNvbSIsImlhdCI6MTcyMDgxNjk4NCwiZXhwIjoxNzIwODE3MDQ0fQ.hALisdrZob6YvUyKTJ_Tj5sFMeTMpQLpFGNs5gzfMxs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query PixkeyVerification ($pixkey_type: String!, $pixkey: String!) {\r\n    pixkeyVerification(pixkey_type: $pixkey_type, pixkey: $pixkey)\r\n}",
+						"variables": "{\r\n    \"pixkey_type\": \"CPF\",\r\n    \"pixkey\": \"59887594083\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query-tokenById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query TokenById ($id: ID!) {\r\n    tokenById(id: $id) {\r\n        id\r\n        token\r\n        username\r\n        pixkey_type\r\n        pixkey\r\n        pixkey_valid\r\n        used\r\n        expired\r\n        createdAt\r\n        updatedAt\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"id\": \"VG9rZW46NjY5MTk0OTlhMTA1OTU1Yzc5MjJmYTE4\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query-tokensByUsername",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query TokensByUsername ($username: String!) {\r\n    tokensByUsername(username: $username) {\r\n        edges {\r\n            cursor\r\n            node {\r\n                id\r\n                token\r\n                username\r\n                pixkey_type\r\n                pixkey\r\n                pixkey_valid\r\n                used\r\n                expired\r\n                createdAt\r\n                updatedAt\r\n            }\r\n        }\r\n        pageInfo {\r\n            hasNextPage\r\n            hasPreviousPage\r\n            startCursor\r\n            endCursor\r\n        }\r\n    }\r\n}\r\n",
+						"variables": "{\r\n    \"username\": \"username@email.com\"\r\n}"
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/graphql",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:4000",
+			"type": "string"
+		}
+	]
+}
